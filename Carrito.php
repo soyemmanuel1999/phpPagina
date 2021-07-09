@@ -2,7 +2,8 @@
 session_start();
 if(!isset($_SESSION['nombreusuario'])){
   header("location: login.php");
-}?>
+}
+?>
 <?php
 session_start();
 include("conexion.php");
@@ -15,6 +16,7 @@ if(isset($_GET['id'])){
     $result=mysqli_query($con,$cons);
     while($fila=mysqli_fetch_array($result)){
         $cantidad=$fila['cantidad'];
+           
         $find=1;
 
     };
@@ -31,6 +33,9 @@ if(isset($_GET['id'])){
 
 }
     header("Location:listarJuguetes.php");
+    if($result){
+        $_SESSION['agregado']="producto agregado";
+    }
 
 
 ?>            

@@ -1,7 +1,19 @@
 <?php
+
+
 session_start();
-       include('conexion.php');
-       include('recursos/header.php');
+if(!isset($_SESSION['nombreusuario'])){
+  header("location: login.php");
+}else if($_SESSION['admin']==1){
+  include('recursos/header.php');
+  
+}else if($_SESSION['admin']==0){
+  include('recursos/headerCliente.php');
+}
+// echo $_SESSION['nombreusuario']; 
+
+
+      
        $paymentID = $_GET['paymentID'];
         $payerID = $_GET['payerID'];
         $token = $_GET['token'];

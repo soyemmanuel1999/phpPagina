@@ -11,17 +11,20 @@
 </head>
 <body>
 
-<div class="container">
-<div class="container">
-<?php if(isset($_SESSION['error'])) { ?>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <?= $_SESSION['error']?>
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <?php session_start();
+        
+        if (isset($_SESSION['error'])){
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
+      echo  $_SESSION['error'];
+     echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-   </div>
+        </button></div>';
+        session_unset();}?>
+     
     
-<?php session_unset();} ?>
+<div class="container">
+
 
 
     <div class = "col d-flex justify-content-center">
@@ -46,7 +49,7 @@
             </div>
         </div>
     </div>
-</div>
+
     
 </body>
 </html>

@@ -37,7 +37,7 @@
           --><label for="">Precio: </label><?php echo $row['precio']?> <label for=""> pesos</label><br>
           <!--<label for="">Categoria: </label><?php echo $row['categoria']?> <label for=""></label><br>
           </p>-->
-          <a href="Carrito.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" name="guarda" onclick="carrito()">agregar al carrito</a>        
+          <a href="Carrito.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" name="guarda" >agregar al carrito</a>        
           
          <!-- <input type="submit" class="btn btn-primary" name="guarda" onclick="masCarrito(<?php echo $row['id'] ?> )">
           --><a href="agregarJuguete.php?idupdate=<?php echo $row['id'] ?>" class="btn btn-success" name="guarda" >Editar</a> 
@@ -52,4 +52,3 @@
   
     
 </div>
-

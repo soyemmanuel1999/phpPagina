@@ -4,10 +4,14 @@
 session_start();
 if(!isset($_SESSION['nombreusuario'])){
   header("location: login.php");
-}
 
+}
+if(isset($_SESSION['agregado'])){
+ echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">'." ".$_SESSION['agregado']." ".'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+}
 ?>
-<?php include('recursos/header.php')?>
+<?php include('recursos/headerCliente.php')?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <?php include('recursos/body.php')?>
 <?php include('conexion.php') ?> 
 <div class="container" style=" z-index:0;">
@@ -35,7 +39,7 @@ $result2=mysqli_query($con,$query);
     echo $row2["descripcion"];
     echo ' | Nombre: ' . $row2['nombre'];
       echo '</div>';//Caption
-     echo '<img style=" width: 100%; height: 550px;" src="./img/juguetes/'. $row2['imagen'] .'" alt="en oferta"/>';
+     echo '<img style=" width: 100%; " src="./img/juguetes/'. $row2['imagen'] .'" alt="en oferta"/>';
      echo '</div>';//ITEM
      $cont=$cont+1;
     }
@@ -68,15 +72,15 @@ $result=mysqli_query($con,$query);
  <h5 class="card-title"><?php echo $row['nombre']?> </h5>
   <label for=""></label>$<?php echo " ".$row['precio']." "?>MXN <label for=""></label><br>
   
-  <a href="Carrito.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" name="guarda" onclick="carrito()">agregar al carrito</a>        
-  <button type="button" class="btn btn-info">Info</button>
+  <a href="Carrito.php?id=<?php echo $row['id'] ?>" class="btn btn-primary" name="guarda" >agregar al carrito</a>        
+  <button type="button" class="btn btn-info" >Info</button>
+  
   </div>
 </div>
 
 </div>
 <?php }
 ?>
-
-
 </div>
+
 

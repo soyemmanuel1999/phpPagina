@@ -20,7 +20,7 @@ include("recursos/header.php")
         <label for="formGroupExampleInput">Categoria</label>
         <input type="text" class="form-control" id="formGroupExampleInput" name="categoria">
     </div>
-<input type="submit" class="btn btn-primary" name="guarda" value="Guardar">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="guarda" value="Guardar">
 
 </form>
 </div>

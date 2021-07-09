@@ -42,7 +42,7 @@ include("recursos/header.php")
         <label for="formGroupExampleInput2">proveedor</label>
         <input type="number" class="form-control" id="formGroupExampleInput2" name="prov">
   </div>
-<input type="submit" class="btn btn-primary" name="guarda" value="Guardar">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="guarda" value="Guardar">
 
 </form>
 </div>

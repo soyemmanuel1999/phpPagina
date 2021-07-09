@@ -34,14 +34,16 @@ if($_POST['correo'] && $_POST['contrasena']){
 
                
          }else{
-            header("Location: login.php");
+             
             $_SESSION['error']='Usuario o contraseña incorrectos :(';
+            header("Location: login.php");
             //session_unset();
          }          
         }
 }else{
-    header("Location: login.php");
+    
     $_SESSION['error']='Usuario o contraseña incorrectos :(';
+    header("Location: login.php");
 }
 
 ?>

@@ -107,11 +107,11 @@ while($row=mysqli_fetch_array($resultado)){
     <div class="col-12">
     <?php
     if($si){
-?>      <button type="button" class="btn btn-primary" onclick="jugueteNuevo(<?php echo $idupdate;?>)">ACTUALIZAR</button>
+?>      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="jugueteNuevo(<?php echo $idupdate;?>)">ACTUALIZAR</button>
  <?php   }else{
     ?>
 
-    <button type="button" class="btn btn-primary" onclick="jugueteNuevo()">GUARDAR</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="jugueteNuevo()">GUARDAR</button>
         
         <?php }?>
         </div>

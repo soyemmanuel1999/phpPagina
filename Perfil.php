@@ -2,11 +2,14 @@
   session_start();
         if(!isset($_SESSION['nombreusuario'])){
           header("location: login.php");
+        }else if($_SESSION['admin']==1){
+           include('recursos/header.php');
+        }else if($_SESSION['admin']==0){
+           include('recursos/headerCliente.php');
         }
        // echo $_SESSION['nombreusuario']; 
     
 ?>
-<?php include('recursos/header.php')?>
 <?php include('recursos/body.php')?>
 <?php include('conexion.php') ?> 
  <div class="container">

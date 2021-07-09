@@ -51,7 +51,7 @@ include("recursos/header.php")
         <input type="text" class="form-control" id="formGroupExampleInput2" name="empresa" aria-describedby="inputGroupPrepend2" required>
   </div>
   </div>
-<input type="submit" class="btn btn-primary" name="guarda" value="Guardar">
+<input type="submit" class="btn btn-primary btn-lg btn-block" name="guarda" value="Guardar">
 
 </form>
 </div>

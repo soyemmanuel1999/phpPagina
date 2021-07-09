@@ -4,12 +4,16 @@
 session_start();
 if(!isset($_SESSION['nombreusuario'])){
   header("location: login.php");
+}else if($_SESSION['admin']==1){
+  include('recursos/header.php');
+  
+}else if($_SESSION['admin']==0){
+  include('recursos/headerCliente.php');
 }
 // echo $_SESSION['nombreusuario']; 
 
 ?>
 
-<?php include('recursos/header.php')?>
 <?php include('recursos/body.php')?>
 <?php include('conexion.php') ?>
 <div class="container">
@@ -22,38 +26,28 @@ if(!isset($_SESSION['nombreusuario'])){
  $result=mysqli_query($con,$query);
  $sumatotal=0;
 
-
-  
   ?>
-  <?php while($row = mysqli_fetch_array($result)){?>
- 
- 
-  <div class="card "style="width: 18rem;">
+  <?php 
   
-    <img src="./img/juguetes/<?php echo $row['imagen']?>" class="card-img-top" alt="..." width="100px">
-</div>
- 
-
-  
-    <div class=card style="width: 18rem;">
-      
-    <h5 class="card-title"><?php echo $row['nombre']?> </h5>
-    <h6 class="card-subtitle mb-2 text-muted"></label>$<?php echo " ".$row['precio']?></h6>
-    <h6 class="card-subtitle mb-2 text-muted"></label>cantidad:<?php echo " ".$row['cantidad']?></h6>
-    <h6 class="card-subtitle mb-2 text-muted"></label>total: <?php echo " ".number_format((float)$row['totalProducto'], 2, '.', '');  ?></h6>
-   
-    <a href="eliminarCarrito.php?id=<?php echo $row['id'] ?>" type="button">eliminar</a>
- 
+    echo '<div class="row">';
+  while($row = mysqli_fetch_array($result)){?>
+  <div class="col col-lg-4">
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="./img/juguetes/<?php echo $row['imagen']?>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $row['nombre']?></h5>
+    <p class="card-text">$<?php echo " ".$row['precio']." "?>MXN</p>
+    <p class="card-text"><?php echo " ".$row['cantidad']." "?>pieza</p>
+    <p class="card-text">total: <?php echo " ".number_format((float)$row['totalProducto'], 2, '.', '')." ";  ?>MXN</p>
+    <a href="eliminarCarrito.php?id=<?php echo $row['id'] ?>"  class="btn btn-danger"><i class="bi bi-trash"></i>Quitar del carrito</a>
   </div>
- 
-  
-
-   
-
+</div>
+</div>
 <br>
   <?php 
   $sumatotal=$sumatotal+$row['totalProducto'];
 }
+echo '</div>'
    ?>
 
 
@@ -83,12 +77,12 @@ $_SESSION['totalCompra']=$productPrice;
      
      ?>
     <a href=realizarPagoubi.php>
-    <button type="button" class="btn btn-primary">Comprar con Mi Ubicacion </button>
+    <button type="button" class="btn btn-primary"><i class="bi bi-geo-alt"></i>Comprar con Mi Ubicacion </button>
     
  </a>
  </br>
  <a href=realizarPago.php>
-    <button type="button" onclick="activarUbicacion()" class="btn btn-primary">Comprar usando una direccion </button>
+    <button type="button" onclick="activarUbicacion()" class="btn btn-primary"><i class="bi bi-input-cursor-text"></i>Comprar usando una direccion </button>
  </a><?php }?>
     </div>
  

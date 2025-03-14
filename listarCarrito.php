@@ -74,11 +74,13 @@ $_SESSION['totalCompra']=$productPrice;
           <?php include 'paypalCheckout.php'; ?>
 <?php
    }else{
-     
+   
      ?>
+     
+    <!-- 
     <a href=realizarPagoubi.php>
     <button type="button" class="btn btn-primary"><i class="bi bi-geo-alt"></i>Comprar con Mi Ubicacion </button>
-    
+   -->
  </a>
  </br>
  <a href=realizarPago.php>
